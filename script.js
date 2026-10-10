@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 elemDesligamento.innerText = dem;
             }
 
-            // Filtra e ordena do menor para o maior com base no código da verba (cod)
+            // Filtra e ordena do menor para o maior pelo código (para a tabela do demonstrativo)
             const proventos = dados.v ? dados.v.filter(item => item.tp === 'P').sort((a, b) => parseInt(a.cod) - parseInt(b.cod)) : [];
             const descontos = dados.v ? dados.v.filter(item => item.tp === 'D').sort((a, b) => parseInt(a.cod) - parseInt(b.cod)) : [];
 
@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
             let totalDescontos = 0;
             let htmlVerbas = '';
 
-            // Renderiza Proventos Ordenados
+            // Renderiza Proventos Ordenados por Código
             if (proventos.length > 0) {
                 htmlVerbas += `
                     <div style="margin-top: 10px; margin-bottom: 2px;">
@@ -138,7 +138,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 `;
             }
 
-            // Renderiza Descontos Ordenados
+            // Renderiza Descontos Ordenados por Código
             if (descontos.length > 0) {
                 htmlVerbas += `
                     <div style="margin-top: 15px; margin-bottom: 2px;">
@@ -182,14 +182,21 @@ document.addEventListener("DOMContentLoaded", () => {
             const container = document.getElementById("listaVerbas");
             if (container) container.innerHTML = htmlVerbas;
 
-            // Preenche o Dropdown de Seleção de Verbas
+            // Preenche o Dropdown de Seleção de Verbas ordenado de A a Z pelo nome
             const selectVerbas = document.getElementById("selectVerbas");
             if (selectVerbas && dados.v) {
                 selectVerbas.innerHTML = `<option value="">-- Selecione uma verba do seu demonstrativo --</option>`;
-                dados.v.forEach((verba, index) => {
+                
+                // Cria uma cópia mapeando a verba e seu índice original para manter a seleção correta
+                const verbasComIndice = dados.v.map((verba, originalIndex) => ({ verba, originalIndex }));
+                
+                // Ordena alfabeticamente de A a Z pelo nome da verba
+                verbasComIndice.sort((a, b) => a.verba.nome.localeCompare(b.verba.nome, 'pt-BR'));
+
+                verbasComIndice.forEach(item => {
                     const option = document.createElement("option");
-                    option.value = index;
-                    option.textContent = `${verba.nome} (R$ ${verba.val.toLocaleString("pt-BR", { minimumFractionDigits: 2 })})`;
+                    option.value = item.originalIndex; // Guarda o índice original para o painel de explicação
+                    option.textContent = `${item.verba.nome} (R$ ${item.verba.val.toLocaleString("pt-BR", { minimumFractionDigits: 2 })})`;
                     selectVerbas.appendChild(option);
                 });
 
