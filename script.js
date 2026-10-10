@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 elemDesligamento.innerText = dem;
             }
 
-            // Filtra e ordena do menor para o maior pelo código (para a tabela do demonstrativo)
+            // Filtra e ordena do menor para o maior pelo código
             const proventos = dados.v ? dados.v.filter(item => item.tp === 'P').sort((a, b) => parseInt(a.cod) - parseInt(b.cod)) : [];
             const descontos = dados.v ? dados.v.filter(item => item.tp === 'D').sort((a, b) => parseInt(a.cod) - parseInt(b.cod)) : [];
 
@@ -132,7 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const totalProventosFormatado = totalProventos.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
                 htmlVerbas += `
                     <div class="verba-total-row">
-                        <span class="verba-nome" style="color: #2e7d32; font-weight: 700;">${capitalizarPrimeiraLetra("Total proventos")}</span>
+                        <span class="verba-nome" style="color: #2e7d32; font-weight: 700; font-size: 0.88rem;">${capitalizarPrimeiraLetra("Total proventos")}</span>
                         <span class="verba-valor-p" style="font-size: 0.9rem;">R$ ${totalProventosFormatado}</span>
                     </div>
                 `;
@@ -163,7 +163,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const totalDescontosFormatado = totalDescontos.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
                 htmlVerbas += `
                     <div class="verba-total-row">
-                        <span class="verba-nome" style="color: #c62828; font-weight: 700;">${capitalizarPrimeiraLetra("Total descontos")}</span>
+                        <span class="verba-nome" style="color: #c62828; font-weight: 700; font-size: 0.88rem;">${capitalizarPrimeiraLetra("Total descontos")}</span>
                         <span class="verba-valor-d" style="font-size: 0.9rem;">R$ ${totalDescontosFormatado}</span>
                     </div>
                 `;
