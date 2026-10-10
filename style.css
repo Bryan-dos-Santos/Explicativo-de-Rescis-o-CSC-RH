@@ -20,28 +20,28 @@ body {
     overflow: hidden;
 }
 
-/* Header Ajustado com Logo à Esquerda */
+/* Header Ajustado com Logo e Texto Empilhados à Esquerda */
 .header {
     background: #00379d;
     color: #ffffff;
-    padding: 18px 25px;
+    padding: 20px 22px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 15px;
+    flex-direction: column; /* Empilha a logo e o texto verticalmente */
+    align-items: flex-start;  /* Justifica tudo rigorosamente à esquerda */
+    gap: 8px;                /* Espaçamento harmonioso entre a logo e o texto */
 }
 
 .logo-header {
-    max-height: 68px;
+    max-height: 58px;
     width: auto;
     display: block;
 }
 
 .header p {
-    font-size: 0.88rem;
+    font-size: 0.86rem;
     opacity: 0.95;
     margin: 0;
-    text-align: right;
+    text-align: left; /* Garante alinhamento à esquerda */
     font-weight: 500;
 }
 
@@ -104,30 +104,28 @@ body {
     align-items: center;
     padding: 8px 4px;
     border-bottom: 1px solid #f2f2f2;
-    gap: 12px; /* Garante um espaço minimo entre texto e valor */
+    gap: 12px;
 }
 
 .verba-row.last-item {
     border-bottom: none;
 }
 
-/* O texto pode quebrar linhas caso o nome da verba seja extenso */
 .verba-nome {
     font-weight: 600;
     color: #1e293b;
     font-size: 0.80rem;
     line-height: 1.3;
-    flex: 1; /* Ocupa todo o espaço restante disponível à esquerda */
+    flex: 1;
     word-break: break-word;
 }
 
-/* O valor numérico NUNCA quebra de linha */
 .verba-valor-p {
     color: #2e7d32;
     font-weight: 700;
     font-size: 0.84rem;
     white-space: nowrap !important;
-    flex-shrink: 0 !important; /* Impede a redução da largura do valor */
+    flex-shrink: 0 !important;
     text-align: right;
 }
 
@@ -136,7 +134,7 @@ body {
     font-weight: 700;
     font-size: 0.84rem;
     white-space: nowrap !important;
-    flex-shrink: 0 !important; /* Impede a redução da largura do valor */
+    flex-shrink: 0 !important;
     text-align: right;
 }
 
@@ -216,19 +214,15 @@ select#selectVerbas option {
     }
 
     .header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 6px;
-        padding: 14px 16px;
+        padding: 16px 18px;
     }
 
     .logo-header {
-        max-height: 52px;
+        max-height: 48px;
     }
 
     .header p {
-        text-align: left;
-        font-size: 0.8rem;
+        font-size: 0.78rem;
     }
 
     .card-info {
