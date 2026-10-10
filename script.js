@@ -68,6 +68,26 @@ document.addEventListener("DOMContentLoaded", () => {
         return txtMin.charAt(0).toUpperCase() + txtMin.slice(1);
     }
 
+    // Função para formatar o nome completo com apenas as iniciais maiúsculas (Ex: "João da Silva")
+    function formatarNomeProprio(nome) {
+        if (!nome) return "---";
+        const excecoes = ["de", "da", "do", "das", "dos", "e"];
+        return nome.toLowerCase().split("").map((palavra, index, array) => {
+            // Garante que é uma string palavra a palavra se separada por espaço
+            return palavra;
+        }).join(""); // Tratamento seguro abaixo:
+    }
+
+    function formatarNomeCompleto(str) {
+        if (!str) return "---";
+        const ignorar = ["de", "da", "do", "das", "dos", "e"];
+        return str.toLowerCase().split(" ").map(palavra => {
+            if (!palavra) return "";
+            if (ignorar.includes(palavra)) return palavra;
+            return palavra.charAt(0).toUpperCase() + palavra.slice(1);
+        }).join(" ");
+    }
+
     function carregarDados() {
         const hash = window.location.hash.substring(1);
         if (!hash) {
@@ -84,10 +104,10 @@ document.addEventListener("DOMContentLoaded", () => {
         try {
             const dados = JSON.parse(jsonString);
 
-            // Preenche dados cadastrais do colaborador
+            // Preenche dados cadastrais do colaborador com formatação limpa
             document.getElementById("lblChapa").innerText = dados.c || "---";
-            document.getElementById("lblNome").innerText = dados.n || "---";
-            document.getElementById("lblTipo").innerText = dados.t || "---";
+            document.getElementById("lblNome").innerText = formatarNomeCompleto(dados.n);
+            document.getElementById("lblTipo").innerText = capitalizarPrimeiraLetra(dados.t || "---");
             
             const adm = formatarData(dados.adm);
             const dem = formatarData(dados.dem);

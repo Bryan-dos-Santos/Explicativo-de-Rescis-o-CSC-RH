@@ -20,7 +20,7 @@ body {
     overflow: hidden;
 }
 
-/* Header Ajustado com Margem Fina no Texto para Alinhamento Perfeito com a Logo */
+/* Header Ajustado */
 .header {
     background: #00379d;
     color: #ffffff;
@@ -42,7 +42,7 @@ body {
     font-size: 0.86rem;
     opacity: 0.95;
     margin: 0;
-    margin-left: 4px;       /* Pequena margem para alinhar exatamente com o início da letra C */
+    margin-left: 3px;
     padding: 0;
     text-align: left;
     font-weight: 500;
@@ -52,14 +52,14 @@ body {
     padding: 20px;
 }
 
-/* Card de Dados do Colaborador */
+/* Card de Dados do Colaborador (Empilhado em 1 coluna e espaçamento limpo) */
 .card-info {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
     background: #f8fafc;
     border: 1px solid #e2e8f0;
-    padding: 12px 15px;
+    padding: 14px 16px;
     border-radius: 8px;
     margin-bottom: 20px;
 }
@@ -74,7 +74,7 @@ body {
     font-size: 0.75rem;
     color: #64748b;
     font-weight: 600;
-    text-transform: uppercase;
+    text-transform: none; /* Remove o maiúsculo forçado */
 }
 
 .info-group .value {
@@ -228,15 +228,6 @@ select#selectVerbas option {
     .header p {
         font-size: 0.78rem;
         margin-left: 2px;
-    }
-
-    .card-info {
-        grid-template-columns: 1fr;
-        padding: 10px;
-    }
-
-    .info-group:nth-child(5) {
-        grid-column: span 1;
     }
 
     .verba-nome {
