@@ -24,7 +24,7 @@ body {
 .header {
     background: #00379d;
     color: #ffffff;
-    padding: 20px 25px;
+    padding: 18px 25px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -32,7 +32,7 @@ body {
 }
 
 .logo-header {
-    max-height: 68px;
+    max-height: 60px;
     width: auto;
     display: block;
 }
