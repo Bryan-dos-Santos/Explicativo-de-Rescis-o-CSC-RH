@@ -182,20 +182,23 @@ document.addEventListener("DOMContentLoaded", () => {
             const container = document.getElementById("listaVerbas");
             if (container) container.innerHTML = htmlVerbas;
 
-            // Preenche o Dropdown de Seleção de Verbas ordenado de A a Z pelo nome
+            // Preenche o Dropdown ordenado de A a Z ignorando o código numérico inicial
             const selectVerbas = document.getElementById("selectVerbas");
             if (selectVerbas && dados.v) {
                 selectVerbas.innerHTML = `<option value="">-- Selecione uma verba do seu demonstrativo --</option>`;
                 
-                // Cria uma cópia mapeando a verba e seu índice original para manter a seleção correta
                 const verbasComIndice = dados.v.map((verba, originalIndex) => ({ verba, originalIndex }));
                 
-                // Ordena alfabeticamente de A a Z pelo nome da verba
-                verbasComIndice.sort((a, b) => a.verba.nome.localeCompare(b.verba.nome, 'pt-BR'));
+                // Ordena alfabeticamente ignorando o código (remove números e hífens do começo para comparar só o texto)
+                verbasComIndice.sort((a, b) => {
+                    const nomeA = a.verba.nome.replace(/^[0-9\s\-]+/, "").trim();
+                    const nomeB = b.verba.nome.replace(/^[0-9\s\-]+/, "").trim();
+                    return nomeA.localeCompare(nomeB, 'pt-BR');
+                });
 
                 verbasComIndice.forEach(item => {
                     const option = document.createElement("option");
-                    option.value = item.originalIndex; // Guarda o índice original para o painel de explicação
+                    option.value = item.originalIndex;
                     option.textContent = `${item.verba.nome} (R$ ${item.verba.val.toLocaleString("pt-BR", { minimumFractionDigits: 2 })})`;
                     selectVerbas.appendChild(option);
                 });
