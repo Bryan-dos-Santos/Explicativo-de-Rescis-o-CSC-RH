@@ -218,7 +218,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 verbasComIndice.forEach(item => {
                     const option = document.createElement("option");
                     option.value = item.originalIndex;
-                    option.textContent = `${item.verba.nome} (R$ ${item.verba.val.toLocaleString("pt-BR", { minimumFractionDigits: 2 })})`;
+                    option.textContent = `${item.verba.nome}`; // Apenas o nome da verba, sem o valor poluindo a lista
                     selectVerbas.appendChild(option);
                 });
 
