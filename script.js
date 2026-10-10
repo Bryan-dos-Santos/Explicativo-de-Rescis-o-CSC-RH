@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
             let totalDescontos = 0;
             let htmlVerbas = '';
 
-            // Renderiza Proventos Ordenados por Código
+            // Renderiza Proventos
             if (proventos.length > 0) {
                 htmlVerbas += `
                     <div style="margin-top: 10px; margin-bottom: 2px;">
@@ -124,21 +124,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     htmlVerbas += `
                         <div class="${cssClass}">
-                            <span style="font-weight: 600; color: #1e293b; font-size: 0.82rem;">${verba.nome}</span>
-                            <span style="color: #2e7d32; font-weight: 700; font-size: 0.86rem;">R$ ${valFormatado}</span>
+                            <span class="verba-nome">${verba.nome}</span>
+                            <span class="verba-valor-p">R$ ${valFormatado}</span>
                         </div>
                     `;
                 });
                 const totalProventosFormatado = totalProventos.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
                 htmlVerbas += `
                     <div class="verba-total-row">
-                        <span style="font-weight: 700; color: #2e7d32; font-size: 0.85rem;">${capitalizarPrimeiraLetra("Total proventos")}</span>
-                        <span style="color: #2e7d32; font-weight: 700; font-size: 0.9rem;">R$ ${totalProventosFormatado}</span>
+                        <span class="verba-nome" style="color: #2e7d32; font-weight: 700;">${capitalizarPrimeiraLetra("Total proventos")}</span>
+                        <span class="verba-valor-p" style="font-size: 0.9rem;">R$ ${totalProventosFormatado}</span>
                     </div>
                 `;
             }
 
-            // Renderiza Descontos Ordenados por Código
+            // Renderiza Descontos
             if (descontos.length > 0) {
                 htmlVerbas += `
                     <div style="margin-top: 15px; margin-bottom: 2px;">
@@ -155,41 +155,40 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     htmlVerbas += `
                         <div class="${cssClass}">
-                            <span style="font-weight: 600; color: #1e293b; font-size: 0.82rem;">${verba.nome}</span>
-                            <span style="color: #c62828; font-weight: 700; font-size: 0.86rem;">R$ ${valFormatado}</span>
+                            <span class="verba-nome">${verba.nome}</span>
+                            <span class="verba-valor-d">R$ ${valFormatado}</span>
                         </div>
                     `;
                 });
                 const totalDescontosFormatado = totalDescontos.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
                 htmlVerbas += `
                     <div class="verba-total-row">
-                        <span style="font-weight: 700; color: #c62828; font-size: 0.85rem;">${capitalizarPrimeiraLetra("Total descontos")}</span>
-                        <span style="color: #c62828; font-weight: 700; font-size: 0.9rem;">R$ ${totalDescontosFormatado}</span>
+                        <span class="verba-nome" style="color: #c62828; font-weight: 700;">${capitalizarPrimeiraLetra("Total descontos")}</span>
+                        <span class="verba-valor-d" style="font-size: 0.9rem;">R$ ${totalDescontosFormatado}</span>
                     </div>
                 `;
             }
 
-            // Cálculo do Líquido de Rescisão (Proventos - Descontos)
+            // Cálculo do Líquido
             const valorLiquido = totalProventos - totalDescontos;
             const valorLiquidoFormatado = valorLiquido.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
             htmlVerbas += `
                 <div class="verba-liquido-row">
-                    <span style="font-weight: 700; color: #00379d; font-size: 0.9rem;">${capitalizarPrimeiraLetra("Líquido de rescisão")}</span>
-                    <span style="color: #00379d; font-weight: 700; font-size: 0.95rem;">R$ ${valorLiquidoFormatado}</span>
+                    <span class="verba-nome" style="color: #00379d; font-weight: 700; font-size: 0.88rem;">${capitalizarPrimeiraLetra("Líquido de rescisão")}</span>
+                    <span class="verba-valor-p" style="color: #00379d; font-size: 0.95rem;">R$ ${valorLiquidoFormatado}</span>
                 </div>
             `;
 
             const container = document.getElementById("listaVerbas");
             if (container) container.innerHTML = htmlVerbas;
 
-            // Preenche o Dropdown ordenado de A a Z ignorando o código numérico inicial
+            // Preenche o Dropdown de Seleção de Verbas de A a Z
             const selectVerbas = document.getElementById("selectVerbas");
             if (selectVerbas && dados.v) {
                 selectVerbas.innerHTML = `<option value="">-- Selecione uma verba do seu demonstrativo --</option>`;
                 
                 const verbasComIndice = dados.v.map((verba, originalIndex) => ({ verba, originalIndex }));
                 
-                // Ordena alfabeticamente ignorando o código (remove números e hífens do começo para comparar só o texto)
                 verbasComIndice.sort((a, b) => {
                     const nomeA = a.verba.nome.replace(/^[0-9\s\-]+/, "").trim();
                     const nomeB = b.verba.nome.replace(/^[0-9\s\-]+/, "").trim();
@@ -203,7 +202,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     selectVerbas.appendChild(option);
                 });
 
-                // Evento ao alterar a verba selecionada
                 selectVerbas.addEventListener("change", (e) => {
                     const idx = e.target.value;
                     const painel = document.getElementById("painelExplicacao");
