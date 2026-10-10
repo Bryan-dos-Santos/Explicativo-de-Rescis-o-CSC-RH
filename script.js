@@ -205,7 +205,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // Preenche o Dropdown de Seleção de Verbas de A a Z
             const selectVerbas = document.getElementById("selectVerbas");
             if (selectVerbas && dados.v) {
-                selectVerbas.innerHTML = `<option value="">-- Selecione uma verba do seu demonstrativo --</option>`;
+                selectVerbas.innerHTML = `<option value="">Selecione uma verba do seu demonstrativo</option>`;
                 
                 const verbasComIndice = dados.v.map((verba, originalIndex) => ({ verba, originalIndex }));
                 
