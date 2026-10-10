@@ -74,7 +74,7 @@ body {
     font-size: 0.75rem;
     color: #64748b;
     font-weight: 600;
-    text-transform: none; /* Remove o maiúsculo forçado */
+    text-transform: none;
 }
 
 .info-group .value {
@@ -171,14 +171,20 @@ body {
     font-size: 0.9rem;
 }
 
-/* Select/Dropdown Compacto */
+/* Select/Dropdown Compacto Otimizado */
 select#selectVerbas {
     font-size: 0.82rem !important;
     padding: 8px 6px !important;
+    width: 100%;
+    border-radius: 6px;
+    border: 1px solid #94a3b8;
+    background-color: #ffffff;
+    color: #1e293b;
 }
 
 select#selectVerbas option {
-    font-size: 0.80rem !important;
+    font-size: 0.78rem !important;
+    padding: 6px;
 }
 
 /* Rodapé de Suporte */
@@ -239,6 +245,10 @@ select#selectVerbas option {
     }
 
     select#selectVerbas {
-        font-size: 0.78rem !important;
+        font-size: 0.74rem !important; /* Fonte menor e proporcional no celular */
+    }
+
+    select#selectVerbas option {
+        font-size: 0.73rem !important;
     }
 }
