@@ -20,29 +20,30 @@ body {
     overflow: hidden;
 }
 
-/* Header Ajustado com Alinhamento Preciso à Esquerda */
+/* Header Ajustado com Margem Fina no Texto para Alinhamento Perfeito com a Logo */
 .header {
     background: #00379d;
     color: #ffffff;
     padding: 18px 22px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;  /* Alinha rigorosamente ao início esquerdo */
-    gap: 4px;                /* Reduz o espaço vertical entre a logo e o texto */
+    align-items: flex-start;
+    gap: 4px;
 }
 
 .logo-header {
     max-height: 58px;
     width: auto;
     display: block;
-    margin-left: 0;          /* Garante zero margem lateral na imagem */
+    margin-left: 0;
 }
 
 .header p {
     font-size: 0.86rem;
     opacity: 0.95;
     margin: 0;
-    padding: 0;              /* Remove qualquer padding interno padrão */
+    margin-left: 3px;       /* Pequena margem para alinhar exatamente com o início da letra C */
+    padding: 0;
     text-align: left;
     font-weight: 500;
 }
@@ -226,6 +227,7 @@ select#selectVerbas option {
 
     .header p {
         font-size: 0.78rem;
+        margin-left: 2px;
     }
 
     .card-info {
