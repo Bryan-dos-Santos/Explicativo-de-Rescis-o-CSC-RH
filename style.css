@@ -20,28 +20,30 @@ body {
     overflow: hidden;
 }
 
-/* Header Ajustado com Logo e Texto Empilhados à Esquerda */
+/* Header Ajustado com Alinhamento Preciso à Esquerda */
 .header {
     background: #00379d;
     color: #ffffff;
-    padding: 20px 22px;
+    padding: 18px 22px;
     display: flex;
-    flex-direction: column; /* Empilha a logo e o texto verticalmente */
-    align-items: flex-start;  /* Justifica tudo rigorosamente à esquerda */
-    gap: 8px;                /* Espaçamento harmonioso entre a logo e o texto */
+    flex-direction: column;
+    align-items: flex-start;  /* Alinha rigorosamente ao início esquerdo */
+    gap: 4px;                /* Reduz o espaço vertical entre a logo e o texto */
 }
 
 .logo-header {
     max-height: 58px;
     width: auto;
     display: block;
+    margin-left: 0;          /* Garante zero margem lateral na imagem */
 }
 
 .header p {
     font-size: 0.86rem;
     opacity: 0.95;
     margin: 0;
-    text-align: left; /* Garante alinhamento à esquerda */
+    padding: 0;              /* Remove qualquer padding interno padrão */
+    text-align: left;
     font-weight: 500;
 }
 
@@ -215,6 +217,7 @@ select#selectVerbas option {
 
     .header {
         padding: 16px 18px;
+        gap: 3px;
     }
 
     .logo-header {
