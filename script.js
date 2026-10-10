@@ -99,14 +99,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 elemDesligamento.innerText = dem;
             }
 
-            const proventos = dados.v ? dados.v.filter(item => item.tp === 'P') : [];
-            const descontos = dados.v ? dados.v.filter(item => item.tp === 'D') : [];
+            // Filtra e ordena do menor para o maior com base no código da verba (cod)
+            const proventos = dados.v ? dados.v.filter(item => item.tp === 'P').sort((a, b) => parseInt(a.cod) - parseInt(b.cod)) : [];
+            const descontos = dados.v ? dados.v.filter(item => item.tp === 'D').sort((a, b) => parseInt(a.cod) - parseInt(b.cod)) : [];
 
             let totalProventos = 0;
             let totalDescontos = 0;
             let htmlVerbas = '';
 
-            // Renderiza Proventos
+            // Renderiza Proventos Ordenados
             if (proventos.length > 0) {
                 htmlVerbas += `
                     <div style="margin-top: 10px; margin-bottom: 2px;">
@@ -137,7 +138,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 `;
             }
 
-            // Renderiza Descontos
+            // Renderiza Descontos Ordenados
             if (descontos.length > 0) {
                 htmlVerbas += `
                     <div style="margin-top: 15px; margin-bottom: 2px;">
