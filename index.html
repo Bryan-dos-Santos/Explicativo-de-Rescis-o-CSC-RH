@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explicativo de Rescisão - CSC RH</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <!-- Cabeçalho -->
+        <header class="header">
+            <h1>CSC RH</h1>
+            <p>Atendimento e Transparência ao Colaborador</p>
+        </header>
+
+        <main class="content">
+            <!-- Card de Dados do Colaborador -->
+            <section class="card-info">
+                <div class="info-group">
+                    <span class="label">Chapa</span>
+                    <p id="lblChapa" class="value">---</p>
+                </div>
+                <div class="info-group">
+                    <span class="label">Nome</span>
+                    <p id="lblNome" class="value">---</p>
+                </div>
+                <div class="info-group">
+                    <span class="label">Tipo de Rescisão</span>
+                    <p id="lblTipo" class="value">---</p>
+                </div>
+                <div class="info-group">
+                    <span class="label">Período Trabalhado</span>
+                    <p id="lblPeriodo" class="value">---</p>
+                </div>
+                <div class="info-group" style="grid-column: span 2;">
+                    <span class="label">Data de Desligamento</span>
+                    <p id="lblDesligamento" class="value">---</p>
+                </div>
+            </section>
+
+            <!-- Demonstrativo / Tabela Espelho -->
+            <h2 class="section-title">Demonstrativo de Verbas Rescisórias</h2>
+            <p class="section-subtitle">Resumo de proventos e descontos apurados na sua rescisão:</p>
+
+            <div id="listaVerbas" class="verbas-list">
+                <div class="empty-state">Carregando informações da rescisão...</div>
+            </div>
+
+            <!-- Seção Interativa de Consulta de Eventos -->
+            <section class="secao-explicativa" style="margin-top: 25px; background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 10px; padding: 15px;">
+                <h3 style="color: #002D62; font-size: 1.1rem; margin-top: 0; margin-bottom: 6px; font-weight: 700;">
+                    💡 Entenda os Detalhes de Cada Evento
+                </h3>
+                <p style="color: #475569; font-size: 0.85rem; margin-bottom: 12px;">
+                    Selecione abaixo a verba em que possui dúvida para visualizar o conceito legal, regra de cálculo e detalhamento do valor:
+                </p>
+
+                <div style="margin-bottom: 12px;">
+                    <label for="selectVerbas" style="display: block; font-weight: 600; font-size: 0.85rem; color: #334155; margin-bottom: 4px;">
+                        Escolha uma Verba:
+                    </label>
+                    <select id="selectVerbas" style="width: 100%; padding: 8px 10px; border-radius: 6px; border: 1px solid #94a3b8; font-size: 0.9rem; color: #1e293b; background-color: #ffffff; cursor: pointer;">
+                        <option value="">-- Selecione uma verba do seu demonstrativo --</option>
+                    </select>
+                </div>
+
+                <!-- Painel Onde Aparece a Explicação do Evento -->
+                <div id="painelExplicacao" style="display: none; background: #ffffff; border-left: 4px solid #002D62; border-radius: 6px; padding: 14px; margin-top: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.04);">
+                    <h4 id="expTitulo" style="margin: 0 0 8px 0; color: #002D62; font-size: 1rem;">---</h4>
+                    
+                    <div style="margin-bottom: 10px;">
+                        <span style="font-weight: 700; color: #334155; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.5px;">Conceito / O que é:</span>
+                        <p id="expConceito" style="margin: 2px 0 0 0; color: #475569; font-size: 0.88rem; line-height: 1.35;">---</p>
+                    </div>
+
+                    <div style="margin-bottom: 10px;">
+                        <span style="font-weight: 700; color: #334155; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.5px;">Como é Calculado / Apurado:</span>
+                        <p id="expCalculo" style="margin: 2px 0 0 0; color: #475569; font-size: 0.88rem; line-height: 1.35;">---</p>
+                    </div>
+
+                    <div>
+                        <span style="font-weight: 700; color: #334155; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.5px;">Entendendo seu Valor (R$):</span>
+                        <p id="expValorExplicacao" style="margin: 2px 0 0 0; color: #1e293b; font-size: 0.88rem; line-height: 1.35; background: #f1f5f9; padding: 6px 10px; border-radius: 4px;">---</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Rodapé / Suporte -->
+            <footer class="footer-action" style="margin-top: 20px;">
+                <p>Ainda ficou com alguma dúvida sobre sua rescisão?</p>
+                <a href="https://wa.me/5547933448201" target="_blank" class="btn-suporte">
+                    💬 Dúvidas? Fale com o CSC RH
+                </a>
+            </footer>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

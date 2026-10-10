@@ -1,0 +1,171 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f1f5f9;
+    color: #334155;
+    padding: 15px 10px;
+}
+
+.container {
+    max-width: 750px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+}
+
+.header {
+    background: #00379d;
+    color: #ffffff;
+    padding: 18px 25px;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.header p {
+    font-size: 0.85rem;
+    opacity: 0.9;
+    margin-top: 2px;
+}
+
+.content {
+    padding: 20px;
+}
+
+/* Card de Dados do Colaborador */
+.card-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 12px 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.info-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-group .label {
+    display: block;
+    font-size: 0.75rem;
+    color: #64748b;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.info-group .value {
+    font-size: 0.9rem;
+    color: #0f172a;
+    font-weight: 700;
+    margin-top: 1px;
+}
+
+.section-title {
+    font-size: 1.1rem;
+    color: #0f172a;
+    margin-bottom: 2px;
+}
+
+.section-subtitle {
+    font-size: 0.82rem;
+    color: #64748b;
+    margin-bottom: 12px;
+}
+
+/* Estilo de Linhas Divisórias Limpas (Sem Caixas) */
+.verbas-list {
+    margin-bottom: 15px;
+}
+
+.verba-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 4px;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+.verba-row.last-item {
+    border-bottom: none;
+}
+
+.verba-total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 4px;
+    border-top: 2px solid #f2f2f2;
+    margin-top: 2px;
+}
+
+.verba-liquido-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 4px;
+    border-top: 2px solid #00379d;
+    margin-top: 8px;
+    background-color: #f8fafc;
+    border-radius: 0 0 6px 6px;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 15px;
+    color: #94a3b8;
+    font-style: italic;
+    font-size: 0.9rem;
+}
+
+/* Rodapé de Suporte */
+.footer-action {
+    text-align: center;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 15px;
+}
+
+.footer-action p {
+    font-size: 0.85rem;
+    color: #64748b;
+    margin-bottom: 8px;
+}
+
+.btn-suporte {
+    display: inline-block;
+    background-color: #25D366;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: background 0.2s;
+}
+
+.btn-suporte:hover {
+    background-color: #1ebe5d;
+}
+
+@media (max-width: 500px) {
+    .card-info {
+        grid-template-columns: 1fr;
+    }
+    .info-group:nth-child(5) {
+        grid-column: span 1;
+    }
+}
