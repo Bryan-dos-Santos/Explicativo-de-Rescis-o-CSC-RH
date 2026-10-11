@@ -251,7 +251,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     if (expTitulo) expTitulo.innerText = `${item.nome}`;
                     if (expConceito) expConceito.innerText = infoConceito.conceito;
                     if (expCalculo) expCalculo.innerText = infoConceito.calculo;
-                    if (expValorExplicacao) expValorExplicacao.innerHTML = `<b>Valor Apurado na sua rescisão:</b> R$ ${valFormat} [${tipoTexto}]`;
+                    if (expValorExplicacao) expValorExplicacao.innerHTML = `<b>Valor calculado na sua rescisão:</b> R$ ${valFormat} [${tipoTexto}]`;
 
                     painel.style.display = "block";
                 });
