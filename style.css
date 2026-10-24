@@ -1,0 +1,254 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f1f5f9;
+    color: #334155;
+    padding: 15px 10px;
+}
+
+.container {
+    max-width: 750px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+}
+
+/* Header Ajustado */
+.header {
+    background: #00379d;
+    color: #ffffff;
+    padding: 18px 22px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+}
+
+.logo-header {
+    max-height: 58px;
+    width: auto;
+    display: block;
+    margin-left: 0;
+}
+
+.header p {
+    font-size: 0.86rem;
+    opacity: 0.95;
+    margin: 0;
+    margin-left: 3px;
+    padding: 0;
+    text-align: left;
+    font-weight: 500;
+}
+
+.content {
+    padding: 20px;
+}
+
+/* Card de Dados do Colaborador com Borda #f2f2f2 */
+.card-info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: #f8fafc;
+    border: 1px solid #f2f2f2;
+    padding: 14px 16px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.info-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-group .label {
+    display: block;
+    font-size: 0.75rem;
+    color: #64748b;
+    font-weight: 600;
+    text-transform: none;
+}
+
+.info-group .value {
+    font-size: 0.9rem;
+    color: #0f172a;
+    font-weight: 700;
+    margin-top: 1px;
+}
+
+.section-title {
+    font-size: 1.1rem;
+    color: #0f172a;
+    margin-bottom: 2px;
+}
+
+.section-subtitle {
+    font-size: 0.82rem;
+    color: #64748b;
+    margin-bottom: 12px;
+}
+
+/* Estilo da Tabela de Verbas */
+.verbas-list {
+    margin-bottom: 15px;
+}
+
+.verba-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 4px;
+    border-bottom: 1px solid #f2f2f2;
+    gap: 12px;
+}
+
+.verba-row.last-item {
+    border-bottom: none;
+}
+
+.verba-nome {
+    font-weight: 600;
+    color: #1e293b;
+    font-size: 0.80rem;
+    line-height: 1.3;
+    flex: 1;
+    word-break: break-word;
+}
+
+.verba-valor-p {
+    color: #2e7d32;
+    font-weight: 700;
+    font-size: 0.84rem;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+    text-align: right;
+}
+
+.verba-valor-d {
+    color: #c62828;
+    font-weight: 700;
+    font-size: 0.84rem;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+    text-align: right;
+}
+
+.verba-total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 4px;
+    border-top: 2px solid #f2f2f2;
+    margin-top: 2px;
+    gap: 12px;
+}
+
+.verba-liquido-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 6px;
+    border-top: 2px solid #00379d;
+    margin-top: 8px;
+    background-color: #f8fafc;
+    border-radius: 0 0 6px 6px;
+    gap: 12px;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 15px;
+    color: #94a3b8;
+    font-style: italic;
+    font-size: 0.9rem;
+}
+
+/* Select/Dropdown Compacto com Borda #f2f2f2 */
+select#selectVerbas {
+    font-size: 0.82rem !important;
+    padding: 8px 6px !important;
+    width: 100%;
+    border-radius: 6px;
+    border: 1px solid #f2f2f2 !important;
+    background-color: #ffffff;
+    color: #1e293b;
+}
+
+select#selectVerbas option {
+    font-size: 0.78rem !important;
+    padding: 6px;
+}
+
+/* Rodapé de Suporte */
+.footer-action {
+    text-align: center;
+    border-top: 1px solid #f2f2f2;
+    padding-top: 15px;
+}
+
+.footer-action p {
+    font-size: 0.82rem;
+    color: #64748b;
+    margin-bottom: 8px;
+}
+
+.btn-suporte {
+    display: inline-block;
+    background-color: #25D366;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: background 0.2s;
+}
+
+.btn-suporte:hover {
+    background-color: #1ebe5d;
+}
+
+/* Responsividade Mobile */
+@media (max-width: 500px) {
+    .content {
+        padding: 12px;
+    }
+
+    .header {
+        padding: 16px 18px;
+        gap: 3px;
+    }
+
+    .logo-header {
+        max-height: 48px;
+    }
+
+    .header p {
+        font-size: 0.78rem;
+        margin-left: 2px;
+    }
+
+    .verba-nome {
+        font-size: 0.76rem;
+    }
+
+    .verba-valor-p, .verba-valor-d {
+        font-size: 0.80rem;
+    }
+
+    select#selectVerbas {
+        font-size: 0.74rem !important;
+    }
+
+    select#selectVerbas option {
+        font-size: 0.73rem !important;
+    }
+}
